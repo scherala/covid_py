@@ -3,9 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from datetime import date,datetime,timedelta
 
-file_confirmed = 'data/time_series_19-covid-Confirmed.csv'
-file_recovered = 'data/time_series_19-covid-Recovered.csv'
-file_deaths = 'data/time_series_19-covid-Deaths.csv'
+file_confirmed = 'https://raw.githubusercontent.com/scherala/covid_py/master/covid_py/data/time_series_19-covid-Confirmed.csv'
 
 def get_confirmed_cases():
     return pd.read_csv(file_confirmed)
@@ -25,6 +23,6 @@ def plot_cases(df,date,y_label):
     plt.xticks(rotation=90)
     plt.show()
 
-def plot_confirmed_cases():
-    plot_cases(get_confirmed_cases(),date.today().strftime("%-m/%-d/%y"),'confirmed')
+def plot_confirmed_cases(date_in):
+    plot_cases(get_confirmed_cases(),date_in,'confirmed')
 

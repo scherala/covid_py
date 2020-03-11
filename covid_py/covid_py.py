@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from datetime import date,datetime,timedelta
 
 file_confirmed = 'data/time_series_19-covid-Confirmed.csv'
 file_recovered = 'data/time_series_19-covid-Recovered.csv'
@@ -15,7 +16,7 @@ def plot_cases(df,date,y_label):
     df[columns].iloc[:,1:] = df[columns].iloc[:,1:].apply(pd.to_numeric)
     result = df[columns].groupby('Country/Region').sum()
     result = np.log(result)
-    plt.figure(figsize=(20, 6))
+    plt.figure(figsize=(25, 6))
     result = result.sort_values(by=date,ascending=False)
     y = result.index
     x = result[date]
@@ -25,5 +26,5 @@ def plot_cases(df,date,y_label):
     plt.show()
 
 def plot_confirmed_cases():
-    plot_cases(df,date.today().strftime("%-m/%-d/%y"),'confirmed')
+    plot_cases(get_confirmed_cases(),date.today().strftime("%-m/%-d/%y"),'confirmed')
 

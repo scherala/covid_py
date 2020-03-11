@@ -2,9 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-file_confirmed = 'time_series_19-covid-Confirmed.csv'
-file_recovered = 'time_series_19-covid-Recovered.csv'
-file_deaths = 'time_series_19-covid-Deaths.csv'
+file_confirmed = 'data/time_series_19-covid-Confirmed.csv'
+file_recovered = 'data/time_series_19-covid-Recovered.csv'
+file_deaths = 'data/time_series_19-covid-Deaths.csv'
 
 def get_confirmed_cases():
     return pd.read_csv(file_confirmed)
